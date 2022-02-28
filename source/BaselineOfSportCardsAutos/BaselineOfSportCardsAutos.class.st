@@ -45,9 +45,9 @@ BaselineOfSportCardsAutos >> setUpPackagesIn: spec [
 
 	spec
 		package: 'SCA-Manufacturer-Model' with: [ spec requires: #( 'Buoy' ) ];
-		package: 'SCA-Specification-Model' with: [ spec requires: #( 'SCA-Manufacturer-Model' ) ];
-		package: 'SCA-Card-Model' with: [ spec requires: #( 'SCA-Specification-Model' ) ];
+		package: 'SCA-Car-Specification-Model' with: [ spec requires: #( 'SCA-Manufacturer-Model' ) ];
+		package: 'SCA-Card-Model' with: [ spec requires: #( 'SCA-Car-Specification-Model' ) ];
 		package: 'SCA-Card-Model-Tests' with: [ spec requires: 'SCA-Card-Model' ];
-		package: 'SCA-Card-Manufacturer-Model-Tests' with: [ spec requires: 'SCA-Manufacturer-Model' ];
-		package: 'SCA-Card-Specification-Model-Tests' with: [ spec requires: 'SCA-Specification-Model' ]
+		package: 'SCA-Manufacturer-Model-Tests' with: [ spec requires: 'SCA-Manufacturer-Model' ];
+		package: 'SCA-Car-Specification-Model-Tests' with: [ spec requires: 'SCA-Car-Specification-Model' ]
 ]
