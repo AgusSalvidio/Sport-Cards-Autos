@@ -16,38 +16,218 @@ BaselineOfSportCardsAutos >> baseline: spec [
 		]
 ]
 
+{ #category : #'private - dependencies set up' }
+BaselineOfSportCardsAutos >> baselineNameOf: aDependencyRepresentation [
+
+	^ aDependencyRepresentation at: #baselineName
+]
+
+{ #category : #'private - dependencies accessing' }
+BaselineOfSportCardsAutos >> buoyDependency [
+
+	^ self dependencyTo: 'Buoy' hostedIn: 'github://ba-st/Buoy:v6/source'
+]
+
+{ #category : #'private - model package accessing' }
+BaselineOfSportCardsAutos >> carSpecificationModelPackage [
+
+	^ self
+		  packageNamed: 'SCA-Car-Specification-Model'
+		  requiring: 'SCA-Manufacturer-Model'
+]
+
+{ #category : #'private - test package accessing' }
+BaselineOfSportCardsAutos >> carSpecificationTestPackage [
+
+	^ self
+		  packageNamed: 'SCA-Car-Specification-Model-Tests'
+		  requiring: 'SCA-Car-Specification-Model'
+]
+
+{ #category : #'private - model package accessing' }
+BaselineOfSportCardsAutos >> cardModelPackage [
+
+	^ self
+		  packageNamed: 'SCA-Card-Model'
+		  requiring: 'SCA-Car-Specification-Model'
+]
+
+{ #category : #'private - test package accessing' }
+BaselineOfSportCardsAutos >> cardTestPackage [
+
+	^ self
+		  packageNamed: 'SCA-Card-Model-Tests'
+		  requiring: 'SCA-Card-Model'
+]
+
+{ #category : #'private - dependencies set up' }
+BaselineOfSportCardsAutos >> configure: aDependency asDependencyIn: aSpec [
+
+	aSpec
+		baseline: (self baselineNameOf: aDependency)
+		with: [ aSpec repository: (self repositoryOf: aDependency) ]
+]
+
+{ #category : #'private - packages set up' }
+BaselineOfSportCardsAutos >> configure: aPackage asPackageIn: aSpec [
+
+	aSpec
+		package: (self packageNameOf: aPackage)
+		with: [ aSpec requires: (self requirementNamesOf: aPackage) ]
+]
+
+{ #category : #'private - dependencies set up' }
+BaselineOfSportCardsAutos >> dependencies [
+
+	^ OrderedCollection new
+		  add: self buoyDependency;
+		  yourself
+]
+
+{ #category : #'private - dependencies set up' }
+BaselineOfSportCardsAutos >> dependencyTo: aBaselineName hostedIn: aRepository [
+
+	^ Dictionary new
+		  at: #baselineName put: aBaselineName;
+		  at: #repository put: aRepository;
+		  yourself
+]
+
+{ #category : #'private - model package accessing' }
+BaselineOfSportCardsAutos >> developmentSupportPackage [
+
+	^ self
+		  packageNamed: 'SCA-Development-Support'
+		  requiring: 'SCA-Card-Model'
+]
+
+{ #category : #'private - test package accessing' }
+BaselineOfSportCardsAutos >> developmentSupportTestPackage [
+
+	^ self
+		  packageNamed: 'SCA-Development-Support-Tests'
+		  requiring: 'SCA-Development-Support'
+]
+
+{ #category : #'private - model package accessing' }
+BaselineOfSportCardsAutos >> manufacturerModelPackage [
+
+	^ self packageNamed: 'SCA-Manufacturer-Model' requiring: 'Buoy'
+]
+
+{ #category : #'private - test package accessing' }
+BaselineOfSportCardsAutos >> manufacturerTestPackage [
+
+	^ self
+		  packageNamed: 'SCA-Manufacturer-Model-Tests'
+		  requiring: 'SCA-Manufacturer-Model'
+]
+
+{ #category : #'private - groups set up' }
+BaselineOfSportCardsAutos >> modelPackageNames [
+
+	^ self packageNamesFrom: self modelPackages
+]
+
+{ #category : #'private - accessing' }
+BaselineOfSportCardsAutos >> modelPackages [
+
+	^ OrderedCollection new
+		  add: self manufacturerModelPackage;
+		  add: self carSpecificationModelPackage;
+		  add: self cardModelPackage;
+		  add: self developmentSupportPackage;
+		  yourself
+]
+
+{ #category : #'private - packages set up' }
+BaselineOfSportCardsAutos >> packageNameOf: aPackageRepresentation [
+
+	^ aPackageRepresentation at: #packageName
+]
+
+{ #category : #'private - packages set up' }
+BaselineOfSportCardsAutos >> packageNamed: aPackageName requiring: aRequirementNameCollection [
+
+	^ Dictionary new
+		  at: #packageName put: aPackageName;
+		  at: #requirementNames put: aRequirementNameCollection;
+		  yourself
+]
+
+{ #category : #'private - groups set up' }
+BaselineOfSportCardsAutos >> packageNamesFrom: aPackageRepresentationCollection [
+
+	^ aPackageRepresentationCollection collect: [ :aPackageRepresentation | 
+		  self packageNameOf: aPackageRepresentation ]
+]
+
+{ #category : #'private - accessing' }
+BaselineOfSportCardsAutos >> packages [
+
+	^ OrderedCollection new
+		  addAll: self modelPackages;
+		  addAll: self testPackages;
+		  yourself
+]
+
 { #category : #baselines }
 BaselineOfSportCardsAutos >> projectClass [
 
 	^ MetacelloCypressBaselineProject
 ]
 
-{ #category : #baselines }
-BaselineOfSportCardsAutos >> setUpDependenciesIn: spec [
+{ #category : #'private - dependencies set up' }
+BaselineOfSportCardsAutos >> repositoryOf: aDependency [
 
-	spec baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v6/source' ]
+	^ aDependency at: #repository
 ]
 
-{ #category : #baselines }
+{ #category : #'private - packages set up' }
+BaselineOfSportCardsAutos >> requirementNamesOf: aPackageRepresentation [
+
+	^ aPackageRepresentation at: #requirementNames
+]
+
+{ #category : #'private - dependencies set up' }
+BaselineOfSportCardsAutos >> setUpDependenciesIn: spec [
+
+	self dependencies do: [ :dependency | 
+		self configure: dependency asDependencyIn: spec ]
+]
+
+{ #category : #'private - groups set up' }
 BaselineOfSportCardsAutos >> setUpGroupsIn: spec [
 
 	spec
-		group: 'Deployment' with: #( 'SCA-Card-Model' 'SCA-Car-Specification-Model' 'SCA-Manufacturer-Model' );
-		group: 'Tests' with: #( 'SCA-Card-Model-Tests' 'SCA-Car-Specification-Model-Tests' 'SCA-Manufacturer-Model-Tests' );
+		group: 'Deployment' with: self modelPackageNames;
+		group: 'Tests' with: self testPackageNames;
 		group: 'CI' with: 'Tests';
 		group: 'Tools' with: #(  );
 		group: 'Dependent-SUnit-Extensions' with: #(  );
 		group: 'Development' with: #( 'Tools' 'Tests' )
 ]
 
-{ #category : #baselines }
-BaselineOfSportCardsAutos >> setUpPackagesIn: spec [
+{ #category : #'private - packages set up' }
+BaselineOfSportCardsAutos >> setUpPackagesIn: aSpec [
 
-	spec
-		package: 'SCA-Manufacturer-Model' with: [ spec requires: #( 'Buoy' ) ];
-		package: 'SCA-Car-Specification-Model' with: [ spec requires: #( 'SCA-Manufacturer-Model' ) ];
-		package: 'SCA-Card-Model' with: [ spec requires: #( 'SCA-Car-Specification-Model' ) ];
-		package: 'SCA-Card-Model-Tests' with: [ spec requires: 'SCA-Card-Model' ];
-		package: 'SCA-Manufacturer-Model-Tests' with: [ spec requires: 'SCA-Manufacturer-Model' ];
-		package: 'SCA-Car-Specification-Model-Tests' with: [ spec requires: 'SCA-Car-Specification-Model' ]
+	self packages do: [ :package | 
+		self configure: package asPackageIn: aSpec ]
+]
+
+{ #category : #'private - groups set up' }
+BaselineOfSportCardsAutos >> testPackageNames [
+
+	^ self packageNamesFrom: self testPackages
+]
+
+{ #category : #'private - accessing' }
+BaselineOfSportCardsAutos >> testPackages [
+
+	^ OrderedCollection new
+		  add: self manufacturerTestPackage;
+		  add: self carSpecificationTestPackage;
+		  add: self cardTestPackage;
+		  add: self developmentSupportTestPackage;
+		  yourself
 ]
