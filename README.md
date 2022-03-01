@@ -10,7 +10,6 @@ A fan-made Sport Cards Autos card game.
 [![Markdown Lint](https://github.com/AgusSalvidio/Sport-Cards-Autos/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/AgusSalvidio/Sport-Cards-Autos/actions/workflows/markdown-lint.yml)
 
 [![GitHub release](https://img.shields.io/github/release/AgusSalvidio/Sport-Cards-Autos.svg)](https://github.com/AgusSalvidio/Sport-Cards-Autos/releases/latest)
-[![Pharo 8.0](https://img.shields.io/badge/Pharo-8.0-informational)](https://pharo.org)
 [![Pharo 9.0](https://img.shields.io/badge/Pharo-9.0-informational)](https://pharo.org)
 
 Sport-Cards-Autos focuses on recreating the original game adding new features such as: game modes, cards, mechanics and more. Playable in both Spanish and English.
