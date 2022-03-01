@@ -37,5 +37,5 @@ To load the project in a Pharo image or declare it as a dependency of your
 project follow this [instructions](docs/Installation.md).
 
 ## Contributing
-
+ 
 Check the [Contribution Guidelines](CONTRIBUTING.md)
