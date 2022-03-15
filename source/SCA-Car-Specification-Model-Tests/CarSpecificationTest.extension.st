@@ -1,8 +1,4 @@
-Class {
-	#name : #CarSpecificationTest,
-	#superclass : #TestCase,
-	#category : #'SCA-Car-Specification-Model-Tests'
-}
+Extension { #name : #CarSpecificationTest }
 
 { #category : #'*SCA-Car-Specification-Model-Tests' }
 CarSpecificationTest >> acceleration [ 

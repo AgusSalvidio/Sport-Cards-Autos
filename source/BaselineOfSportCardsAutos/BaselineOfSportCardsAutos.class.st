@@ -4,6 +4,12 @@ Class {
 	#category : #BaselineOfSportCardsAutos
 }
 
+{ #category : #'private - dependencies accessing' }
+BaselineOfSportCardsAutos >> aconcaguaDependency [
+
+	^ self dependencyTo: 'Aconcagua' hostedIn: 'github://ba-st/Aconcagua:v8.0.0/source'
+]
+
 { #category : #baselines }
 BaselineOfSportCardsAutos >> baseline: spec [
 
@@ -81,6 +87,7 @@ BaselineOfSportCardsAutos >> dependencies [
 
 	^ OrderedCollection new
 		  add: self buoyDependency;
+		  add: self aconcaguaDependency; 
 		  yourself
 ]
 
