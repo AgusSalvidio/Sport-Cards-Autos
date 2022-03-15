@@ -144,7 +144,7 @@ CarSpecification class >> assertIsValidWeight: aWeightAmount [
 		checking: [ :asserter | 
 			asserter
 				enforce: [ aWeightAmount amount isInteger ]
-				because: 'A car card weight amount must be a integer.';
+				because: 'A car card weight amount must be an integer.';
 				enforce: [ self isGreaterThanOne: aWeightAmount ]
 				because: 'A car card weight amount must be greater or equal than 1.'
 			];

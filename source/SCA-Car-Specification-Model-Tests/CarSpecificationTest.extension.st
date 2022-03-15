@@ -75,6 +75,69 @@ CarSpecificationTest >> rpm [
 ]
 
 { #category : #'*SCA-Car-Specification-Model-Tests' }
+CarSpecificationTest >> testCarCardAccelerationNumberMustBeAFloat [
+
+	self
+		should: [ self carSpecificationWithAccelerationBeing: 20 ]
+		raise: InstanceCreationFailed
+		withMessageText: 'A car card acceleration amount must be a float.'
+]
+
+{ #category : #'*SCA-Car-Specification-Model-Tests' }
+CarSpecificationTest >> testCarCardAccelerationNumberMustBeGreaterOrEqualThanOne [
+
+	self
+		should: [ self carSpecificationWithAccelerationBeing: -2.5 ]
+		raise: InstanceCreationFailed
+		withMessageText: 'A car card acceleration amount must be greater or equal than 1.'
+]
+
+{ #category : #'*SCA-Car-Specification-Model-Tests' }
+CarSpecificationTest >> testCarCardCylinderCapacityNumberMustBeAnInteger [
+
+	self
+		should: [ self carSpecificationWithCylinderCapacityBeing: 12.5 ]
+		raise: InstanceCreationFailed
+		withMessageText: 'A car card cylinder capacity amount must be an integer.'
+]
+
+{ #category : #'*SCA-Car-Specification-Model-Tests' }
+CarSpecificationTest >> testCarCardCylinderCapacityNumberMustBeGreaterOrEqualThanOne [
+
+	self
+		should: [ self carSpecificationWithCylinderCapacityBeing: -2 ]
+		raise: InstanceCreationFailed
+		withMessageText: 'A car card cylinder capacity amount must be greater or equal than 1.'
+]
+
+{ #category : #'*SCA-Car-Specification-Model-Tests' }
+CarSpecificationTest >> testCarCardFuelConsumptionAmountMustBeAFloat [
+
+	self
+		should: [ self carSpecificationWithFuelConsumptionBeing: 4 ]
+		raise: InstanceCreationFailed
+		withMessageText: 'A car card fuel consumption amount must be a float.'
+]
+
+{ #category : #'*SCA-Car-Specification-Model-Tests' }
+CarSpecificationTest >> testCarCardFuelConsumptionAmountMustBeGreaterOrEqualThanOne [
+
+	self
+		should: [ self carSpecificationWithFuelConsumptionBeing: -2.45 ]
+		raise: InstanceCreationFailed
+		withMessageText: 'A car card fuel consumption amount must be greater or equal than 1.'
+]
+
+{ #category : #'*SCA-Car-Specification-Model-Tests' }
+CarSpecificationTest >> testCarCardManeuverabilityAmountMustBeGreaterOrEqualThanOne [
+
+	self
+		should: [ self carSpecificationWithManeuverabilityBeing: -2 ]
+		raise: InstanceCreationFailed
+		withMessageText: 'A car card maneuverability number must be greater or equal than 1.'
+]
+
+{ #category : #'*SCA-Car-Specification-Model-Tests' }
 CarSpecificationTest >> testCarCardTopSpeedNumberMustBeAnInteger [
 
 	self
