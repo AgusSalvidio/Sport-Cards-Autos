@@ -14,15 +14,15 @@ CarCardTest >> bmwManufacturer [
 CarCardTest >> defaultCarSpecification [
 	
 	^ CarSpecification 
-			topSpeed: 250
-			rpm: 6900
-			acceleration: 4.79
-			power: 340
+			topSpeed: (SCAUnits topSpeed with: 250)
+			rpm: (SCAUnits rpm with: 6900)
+			acceleration: (SCAUnits acceleration with: 4.79) 
+			power: (SCAUnits power with: 340)
 			maneuverability: 73
-			traction: 37
-			fuelConsumption: 7.3
-			cylinderCapacity: 3795
-			weight: 1725
+			traction: 37 
+			fuelConsumption: (SCAUnits fuelConsumption with: 7.3)
+			cylinderCapacity: (SCAUnits cylinderCapacity with: 3795) 
+			weight: (SCAUnits weight with: 1725) 
 			brakeSystem: 'ABS'
 ]
 

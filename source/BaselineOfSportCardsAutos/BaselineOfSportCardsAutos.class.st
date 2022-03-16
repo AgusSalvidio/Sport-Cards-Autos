@@ -4,6 +4,12 @@ Class {
 	#category : #BaselineOfSportCardsAutos
 }
 
+{ #category : #'private - dependencies accessing' }
+BaselineOfSportCardsAutos >> aconcaguaDependency [
+
+	^ self dependencyTo: 'Aconcagua' hostedIn: 'github://ba-st/Aconcagua:v8/source'
+]
+
 { #category : #baselines }
 BaselineOfSportCardsAutos >> baseline: spec [
 
@@ -33,7 +39,7 @@ BaselineOfSportCardsAutos >> carSpecificationModelPackage [
 
 	^ self
 		  packageNamed: 'SCA-Car-Specification-Model'
-		  requiring: 'SCA-Manufacturer-Model'
+		  requiring: #('Aconcagua' 'SCA-Manufacturer-Model')
 ]
 
 { #category : #'private - test package accessing' }
@@ -81,6 +87,7 @@ BaselineOfSportCardsAutos >> dependencies [
 
 	^ OrderedCollection new
 		  add: self buoyDependency;
+		  add: self aconcaguaDependency; 
 		  yourself
 ]
 
