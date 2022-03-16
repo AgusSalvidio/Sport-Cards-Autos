@@ -4,13 +4,13 @@ Class {
 	#category : #'SCA-Car-Specification-Model-Tests'
 }
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> acceleration [ 
 
 	^ SCAUnits acceleration with: 4.79
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> brakeSystem [     
 
 	^ 'ABS'
@@ -114,7 +114,7 @@ CarSpecificationTest >> carSpecificationWithRPMBeing: aRPMAmount [
 		brakeSystem: self brakeSystem 
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> carSpecificationWithTopSpeedBeing: aTopSpeed [
 
 	^ self 
@@ -162,7 +162,7 @@ CarSpecificationTest >> carSpecificationWithWeightBeing: aWeightAmount [
 		brakeSystem: self brakeSystem 
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> customCarSpecificationWithTopSpeed: aTopSpeed rpm: theRPM acceleration: anAccelerationAmount power: aPowerAmount maneuverability: aManeuverabilityAmount traction: aTractionAmount fuelConsumption: aFuelCosumptionAmount cylinderCapacity: theCylinderCapacityAmount weight: aWeightAmount brakeSystem: aBrakeSystem [
 	
 	^ CarSpecification 
@@ -178,37 +178,37 @@ CarSpecificationTest >> customCarSpecificationWithTopSpeed: aTopSpeed rpm: theRP
 			brakeSystem: aBrakeSystem
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> cylinderCapacity [     
 
 	^ SCAUnits cylinderCapacity with: 3795
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> fuelConsumption [    
 
 	^ SCAUnits fuelConsumption with: 7.3
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> maneuverability [  
 
 	^ 73
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> power [ 
 
 	^ SCAUnits power with: 340
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> rpm [
 
 	^ SCAUnits rpm with: 6900
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #tests }
 CarSpecificationTest >> testCarCardAccelerationNumberMustBeAFloat [
 
 	self
@@ -217,7 +217,7 @@ CarSpecificationTest >> testCarCardAccelerationNumberMustBeAFloat [
 		withMessageText: 'A car card acceleration amount must be a float.'
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #tests }
 CarSpecificationTest >> testCarCardAccelerationNumberMustBeGreaterOrEqualThanOne [
 
 	self
@@ -226,7 +226,7 @@ CarSpecificationTest >> testCarCardAccelerationNumberMustBeGreaterOrEqualThanOne
 		withMessageText: 'A car card acceleration amount must be greater or equal than 1.'
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #tests }
 CarSpecificationTest >> testCarCardCylinderCapacityNumberMustBeAnInteger [
 
 	self
@@ -235,7 +235,7 @@ CarSpecificationTest >> testCarCardCylinderCapacityNumberMustBeAnInteger [
 		withMessageText: 'A car card cylinder capacity amount must be an integer.'
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #tests }
 CarSpecificationTest >> testCarCardCylinderCapacityNumberMustBeGreaterOrEqualThanOne [
 
 	self
@@ -244,7 +244,7 @@ CarSpecificationTest >> testCarCardCylinderCapacityNumberMustBeGreaterOrEqualTha
 		withMessageText: 'A car card cylinder capacity amount must be greater or equal than 1.'
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #tests }
 CarSpecificationTest >> testCarCardFuelConsumptionAmountMustBeAFloat [
 
 	self
@@ -253,7 +253,7 @@ CarSpecificationTest >> testCarCardFuelConsumptionAmountMustBeAFloat [
 		withMessageText: 'A car card fuel consumption amount must be a float.'
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #tests }
 CarSpecificationTest >> testCarCardFuelConsumptionAmountMustBeGreaterOrEqualThanOne [
 
 	self
@@ -268,16 +268,16 @@ CarSpecificationTest >> testCarCardManeuverabilityAmountMustBeAnInteger [
 	self
 		should: [ self carSpecificationWithManeuverabilityBeing: 12.6 ]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card maneuverability number must be an integer.'
+		withMessageText: 'A car card maneuverability amount must be an integer.'
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #tests }
 CarSpecificationTest >> testCarCardManeuverabilityAmountMustBeGreaterOrEqualThanOne [
 
 	self
 		should: [ self carSpecificationWithManeuverabilityBeing: -2 ]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card maneuverability number must be greater or equal than 1.'
+		withMessageText: 'A car card maneuverability amount must be greater or equal than 1.'
 ]
 
 { #category : #tests }
@@ -286,7 +286,7 @@ CarSpecificationTest >> testCarCardPowerAmountMustBeAnInteger [
 	self
 		should: [ self carSpecificationWithPowerBeing: 12.5 ]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card horsepower must be an integer.'
+		withMessageText: 'A car card horsepower amount must be an integer.'
 ]
 
 { #category : #tests }
@@ -295,7 +295,7 @@ CarSpecificationTest >> testCarCardPowerAmountMustBeGreaterOrEqualThanOne [
 	self
 		should: [ self carSpecificationWithPowerBeing: -2 ]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card horsepower must be greater or equal than 1.'
+		withMessageText: 'A car card horsepower amount must be greater or equal than 1.'
 ]
 
 { #category : #tests }
@@ -304,7 +304,7 @@ CarSpecificationTest >> testCarCardRPMAmountMustBeAnInteger [
 	self
 		should: [ self carSpecificationWithRPMBeing: 2.5 ]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card RPM must be an integer.'
+		withMessageText: 'A car card RPM amount must be an integer.'
 ]
 
 { #category : #tests }
@@ -313,25 +313,25 @@ CarSpecificationTest >> testCarCardRPMAmountMustBeGreaterOrEqualThanOne [
 	self
 		should: [ self carSpecificationWithRPMBeing: -2 ]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card RPM must be greater or equal than 1.'
+		withMessageText: 'A car card RPM amount must be greater or equal than 1.'
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
-CarSpecificationTest >> testCarCardTopSpeedNumberMustBeAnInteger [
+{ #category : #tests }
+CarSpecificationTest >> testCarCardTopSpeedAmountMustBeAnInteger [
 
 	self
 		should: [ self carSpecificationWithTopSpeedBeing: 95.6 ]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card top speed must be an integer.'
+		withMessageText: 'A car card top speed amount must be an integer.'
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
-CarSpecificationTest >> testCarCardTopSpeedNumberMustBeGreaterOrEqualThanOne [
+{ #category : #tests }
+CarSpecificationTest >> testCarCardTopSpeedAmountMustBeGreaterOrEqualThanOne [
 
 	self
 		should: [ self carSpecificationWithTopSpeedBeing: -2	]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card top speed must be greater or equal than 1.'
+		withMessageText: 'A car card top speed amount must be greater or equal than 1.'
 ]
 
 { #category : #tests }
@@ -340,7 +340,7 @@ CarSpecificationTest >> testCarCardTractionAmountMustBeAnInteger [
 	self
 		should: [ self carSpecificationWithTractionBeing: 12.5 ]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card traction number must be an integer.'
+		withMessageText: 'A car card traction amount must be an integer.'
 ]
 
 { #category : #tests }
@@ -349,7 +349,7 @@ CarSpecificationTest >> testCarCardTractionAmountMustBeGreaterOrEqualThanOne [
 	self
 		should: [ self carSpecificationWithTractionBeing: -2 ]
 		raise: InstanceCreationFailed
-		withMessageText: 'A car card traction number must be greater or equal than 1.'
+		withMessageText: 'A car card traction amount must be greater or equal than 1.'
 ]
 
 { #category : #tests }
@@ -370,19 +370,19 @@ CarSpecificationTest >> testCarCardTractionWeightMustBeGreaterOrEqualThanOne [
 		withMessageText: 'A car card weight amount must be greater or equal than 1.'
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> topSpeed [
 
 	^ SCAUnits topSpeed with: 250
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> traction [   
 
 	^ 37
 ]
 
-{ #category : #'*SCA-Car-Specification-Model-Tests' }
+{ #category : #'private - accessing' }
 CarSpecificationTest >> weight [     
 
 	^ SCAUnits weight with: 1725

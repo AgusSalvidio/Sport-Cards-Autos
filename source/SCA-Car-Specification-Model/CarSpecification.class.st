@@ -69,9 +69,9 @@ CarSpecification class >> assertIsValidManeuverability: aManeuverabilityAmount [
 		checking: [ :asserter | 
 			asserter
 				enforce: [ aManeuverabilityAmount isInteger ]
-				because: 'A car card maneuverability number must be an integer.';
+				because: 'A car card maneuverability amount must be an integer.';
 				enforce: [ self isGreaterThanOne: aManeuverabilityAmount ]
-				because: 'A car card maneuverability number must be greater or equal than 1.'
+				because: 'A car card maneuverability amount must be greater or equal than 1.'
 			];
 		buildAndCheck
 ]
@@ -84,9 +84,9 @@ CarSpecification class >> assertIsValidPower: aPowerAmount [
 		checking: [ :asserter | 
 			asserter
 				enforce: [ aPowerAmount amount isInteger ]
-				because: 'A car card horsepower must be an integer.';
+				because: 'A car card horsepower amount must be an integer.';
 				enforce: [ self isGreaterThanOne: aPowerAmount ]
-				because: 'A car card horsepower must be greater or equal than 1.'
+				because: 'A car card horsepower amount must be greater or equal than 1.'
 			];
 		buildAndCheck
 ]
@@ -99,9 +99,9 @@ CarSpecification class >> assertIsValidRPM: theRPM [
 		checking: [ :asserter | 
 			asserter
 				enforce: [ theRPM amount isInteger ]
-				because: 'A car card RPM must be an integer.';
+				because: 'A car card RPM amount must be an integer.';
 				enforce: [ self isGreaterThanOne: theRPM ]
-				because: 'A car card RPM must be greater or equal than 1.'
+				because: 'A car card RPM amount must be greater or equal than 1.'
 			];
 		buildAndCheck
 ]
@@ -114,9 +114,9 @@ CarSpecification class >> assertIsValidTopSpeed: aTopSpeed [
 		checking: [ :asserter | 
 			asserter
 				enforce: [ aTopSpeed amount isInteger ]
-				because: 'A car card top speed must be an integer.';
+				because: 'A car card top speed amount must be an integer.';
 				enforce: [ self isGreaterThanOne: aTopSpeed ]
-				because: 'A car card top speed must be greater or equal than 1.'
+				because: 'A car card top speed amount must be greater or equal than 1.'
 			];
 		buildAndCheck
 ]
@@ -129,9 +129,9 @@ CarSpecification class >> assertIsValidTraction: aTractionAmount [
 		checking: [ :asserter | 
 			asserter
 				enforce: [ aTractionAmount isInteger ]
-				because: 'A car card traction number must be an integer.';
+				because: 'A car card traction amount must be an integer.';
 				enforce: [ self isGreaterThanOne: aTractionAmount ]
-				because: 'A car card traction number must be greater or equal than 1.'
+				because: 'A car card traction amount must be greater or equal than 1.'
 			];
 		buildAndCheck
 ]
