@@ -7,7 +7,7 @@ Class {
 { #category : #'private - dependencies accessing' }
 BaselineOfSportCardsAutos >> aconcaguaDependency [
 
-	^ self dependencyTo: 'Aconcagua' hostedIn: 'github://ba-st/Aconcagua:v8.0.0/source'
+	^ self dependencyTo: 'Aconcagua' hostedIn: 'github://ba-st/Aconcagua:v8/source'
 ]
 
 { #category : #baselines }
@@ -39,7 +39,7 @@ BaselineOfSportCardsAutos >> carSpecificationModelPackage [
 
 	^ self
 		  packageNamed: 'SCA-Car-Specification-Model'
-		  requiring: 'SCA-Manufacturer-Model'
+		  requiring: #('Aconcagua' 'SCA-Manufacturer-Model')
 ]
 
 { #category : #'private - test package accessing' }
